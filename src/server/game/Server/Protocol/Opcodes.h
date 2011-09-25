@@ -838,7 +838,7 @@ enum Opcodes
     SMSG_LOTTERY_RESULT_OBSOLETE                     = 0x10176, //
     SMSG_CHARACTER_PROFILE                           = 0x10177, //
     SMSG_CHARACTER_PROFILE_REALM_CONNECTED           = 0x10178, //
-    SMSG_DEFENSE_MESSAGE                             = 0x09EC3, //
+    SMSG_DEFENSE_MESSAGE                             = 0x09EC3, // 14545
     SMSG_INSTANCE_DIFFICULTY                         = 0x10179, //
     MSG_GM_RESETINSTANCELIMIT                        = 0x1017A, //
     SMSG_MOTD                                        = 0x0E6FB, //
