@@ -22,7 +22,7 @@
 #ifndef _UPDATEFIELDS_AUTO_H
 #define _UPDATEFIELDS_AUTO_H
 
-// Auto generated for version 4, 2, 0, 14480
+// Auto generated for version 4, 2, 2, 14454
 
 enum EObjectFields
 {
@@ -543,4 +543,5 @@ enum ECorpseFields
     CORPSE_FIELD_DYNAMIC_FLAGS                = OBJECT_END + 0x001B, // Size: 1, Type: INT, Flags: UNUSED2
     CORPSE_END                                = OBJECT_END + 0x001C,
 };
+
 #endif
