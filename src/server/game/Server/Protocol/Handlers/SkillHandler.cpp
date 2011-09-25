@@ -46,13 +46,13 @@ void WorldSession::HandleLearnPreviewTalents(WorldPacket& recvPacket)
     uint32 talentsCount;
     recvPacket >> spec >> talentsCount;
 
-    if(spec != ((uint32)-1))
+    if (spec != ((uint32)-1))
     {
         uint32 specID = 0;
-        for(uint32 i = 0; i < sTalentTabStore.GetNumRows(); i++)
+        for (uint32 i = 0; i < sTalentTabStore.GetNumRows(); i++)
         {
             TalentTabEntry const * entry = sTalentTabStore.LookupEntry(i);
-            if(entry)
+            if (entry)
             {
                 if(entry->ClassMask == _player->getClassMask() && entry->tabpage == spec)
                 {
@@ -72,10 +72,10 @@ void WorldSession::HandleLearnPreviewTalents(WorldPacket& recvPacket)
             {
                 TalentTreePrimarySpellsEntry const *talentInfo = sTalentTreePrimarySpells.LookupEntry(i);
                 
-                if (!talentInfo || talentInfo->TalentTab != specID)
+                if (!talentInfo || talentInfo->TalentTabID != _player->TalentBranchSpec(specID))
                     continue;
                 
-                _player->learnSpell(talentInfo->Spell, false);
+                _player->learnSpell(talentInfo->SpellID, false);
             }    
         }
         else if(_player->TalentBranchSpec(_player->m_activeSpec) != specID) //cheat
