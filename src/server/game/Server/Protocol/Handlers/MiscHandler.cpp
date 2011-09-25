@@ -79,7 +79,7 @@ void WorldSession::HandleRepopRequestOpcode(WorldPacket & recv_data)
     }
 
     //this is spirit release confirm?
-    GetPlayer()->RemovePet(NULL, PET_SAVE_NOT_IN_SLOT, true);
+    GetPlayer()->RemovePet(NULL, PET_SLOT_ACTUAL_PET_SLOT, true);
     GetPlayer()->BuildPlayerRepop();
     GetPlayer()->RepopAtGraveyard();
 }
@@ -341,6 +341,12 @@ void WorldSession::HandleWhoOpcode(WorldPacket & recv_data)
         // through config, but is unstable
         if ((matchcount++) >= sWorld->getIntConfig(CONFIG_MAX_WHO))
             continue;
+
+        if (itr->second->isGameMaster())
+        {
+            pname = "<GM>";
+            pname.append(itr->second->GetName());
+        }
 
         data << pname;                                    // player name
         data << gname;                                    // guild name
